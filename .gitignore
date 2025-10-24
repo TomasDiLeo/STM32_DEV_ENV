@@ -41,6 +41,11 @@
 *.su
 *.idb
 *.pdb
+*.cyclo
+
+#Build folder
+Release/
+Debug/
 
 # Kernel Module Compile Results
 *.mod*
