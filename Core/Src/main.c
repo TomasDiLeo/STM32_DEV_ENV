@@ -24,6 +24,7 @@
 #include <stdio.h>
 #include "LCD_NC.h"
 #include "CLOCK.h"
+#include "KEYPAD.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -118,17 +119,29 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  lcd_put_cur(0, 0);
-	  sprintf(string_buffer, " Fecha :%02d/%02d/%02d", datetime.date, datetime.month, datetime.year);
-	  lcd_send_string(string_buffer);
+	  HAL_Delay(1); //STABILITY
+	  //CLOCK FUNC TEST
+//	  lcd_put_cur(0, 0);
+//	  sprintf(string_buffer, " Fecha :%02d/%02d/%02d", datetime.date, datetime.month, datetime.year);
+//	  lcd_send_string(string_buffer);
+//
+//	  lcd_put_cur(1, 0);
+//	  sprintf(string_buffer, " Hora :%02u/%02u/%02u", datetime.hours, datetime.minutes, datetime.seconds);
+//	  lcd_send_string(string_buffer);
+//
+//	  clock_get_time(&datetime.hours, &datetime.minutes, &datetime.seconds);
+//	  clock_get_date(&datetime.date, &datetime.month, &datetime.year);
 
-	  lcd_put_cur(1, 0);
-	  sprintf(string_buffer, " Hora :%02u/%02u/%02u", datetime.hours, datetime.minutes, datetime.seconds);
-	  lcd_send_string(string_buffer);
+	  //KEYPAD FUNC TEST
 
-	  clock_get_time(&datetime.hours, &datetime.minutes, &datetime.seconds);
-	  clock_get_date(&datetime.date, &datetime.month, &datetime.year);
-    /* USER CODE END WHILE */
+	  uint8_t key = keypad_read();
+	  if(key){
+		  lcd_put_cur(0, 0);
+		  sprintf(string_buffer, "%2d", key);
+		  lcd_send_string(string_buffer);
+	  }
+
+	  /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
