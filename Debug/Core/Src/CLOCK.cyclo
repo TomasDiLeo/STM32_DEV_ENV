@@ -1,6 +1,0 @@
-../Core/Src/CLOCK.c:6:6:clock_init	1
-../Core/Src/CLOCK.c:10:9:clock_int_to_bcd	1
-../Core/Src/CLOCK.c:14:6:clock_set_time	3
-../Core/Src/CLOCK.c:27:6:clock_set_date	3
-../Core/Src/CLOCK.c:40:6:clock_get_time	5
-../Core/Src/CLOCK.c:54:6:clock_get_date	5
