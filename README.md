@@ -9,14 +9,12 @@ Este proyecto esta pensado para el desarrollo de aplicaciones bajo el IDE STM32C
 | --------------------------------- | ---------------------- |
 | Firmware Package name and version | STM32Cube FW_F1 V1.8.6 |
 ![[pin_cfg.png]]
+Referencia de pines detallada en la inicialización de pines en main.c
 ## Importar proyecto
 
 Para importar el proyecto solo es necesario indicar el directorio del proyecto dentro de la opción de importar proyecto existente de STM32CubeIDE.
 
 ![[import.png]]
-
-Here you should say what actually happens when you execute the code above.
-
 ## Desarrollo
 
 
