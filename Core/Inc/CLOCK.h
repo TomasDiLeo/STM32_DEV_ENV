@@ -22,6 +22,7 @@ typedef struct {
 	uint8_t date;
 	uint8_t month;
 	uint8_t year;
+	uint8_t week_day;
 } DateTime;
 
 extern DateTime datetime;

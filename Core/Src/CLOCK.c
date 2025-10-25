@@ -77,6 +77,8 @@ void clock_update_datetime(void){
     datetime.date = gDate.Date;
     datetime.month = gDate.Month;
     datetime.year = gDate.Year;
+
+    datetime.week_day = gDate.WeekDay;
 }
 
 static int is_leap_year(uint8_t year){
