@@ -50,15 +50,6 @@ RTC_HandleTypeDef hrtc;
 /* USER CODE BEGIN PV */
 char string_buffer[30];
 
-DateTime datetime = {
-		.hours = 0,
-		.minutes = 0,
-		.seconds = 0,
-		.date = 22,
-		.month = 10,
-		.year = 25
-};
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -110,9 +101,6 @@ int main(void)
   lcd_init();
   clock_init(&hrtc);
 
-
-  clock_set_time(datetime.hours, datetime.minutes, datetime.seconds);
-  clock_set_date(datetime.date, datetime.month, datetime.year);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,26 +108,27 @@ int main(void)
   while (1)
   {
 	  HAL_Delay(1); //STABILITY
-	  //CLOCK FUNC TEST
-//	  lcd_put_cur(0, 0);
-//	  sprintf(string_buffer, " Fecha :%02d/%02d/%02d", datetime.date, datetime.month, datetime.year);
-//	  lcd_send_string(string_buffer);
-//
-//	  lcd_put_cur(1, 0);
-//	  sprintf(string_buffer, " Hora :%02u/%02u/%02u", datetime.hours, datetime.minutes, datetime.seconds);
-//	  lcd_send_string(string_buffer);
-//
-//	  clock_get_time(&datetime.hours, &datetime.minutes, &datetime.seconds);
-//	  clock_get_date(&datetime.date, &datetime.month, &datetime.year);
 
+	  //CLOCK FUNC TEST
+	  lcd_put_cur(0, 0);
+	  sprintf(string_buffer, " Fecha :%02d/%02d/%02d", datetime.date, datetime.month, datetime.year);
+	  lcd_send_string(string_buffer);
+
+	  lcd_put_cur(1, 0);
+	  sprintf(string_buffer, " Hora :%02u/%02u/%02u", datetime.hours, datetime.minutes, datetime.seconds);
+	  lcd_send_string(string_buffer);
+
+	  clock_update_datetime();
 	  //KEYPAD FUNC TEST
 
-	  uint8_t key = keypad_read();
-	  if(key){
-		  lcd_put_cur(0, 0);
-		  sprintf(string_buffer, "%2d", key);
-		  lcd_send_string(string_buffer);
-	  }
+//	  uint8_t key = keypad_read();
+//	  if(key){
+//		  lcd_put_cur(0, 0);
+//		  sprintf(string_buffer, "%2d", key);
+//		  lcd_send_string(string_buffer);
+//	  }
+
+
 
 	  /* USER CODE END WHILE */
 
