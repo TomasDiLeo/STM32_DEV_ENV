@@ -21,6 +21,8 @@ void clock_init(RTC_HandleTypeDef *hrtc) {
 
     clock_set_time(datetime.hours, datetime.minutes, datetime.seconds);
     clock_set_date(datetime.date, datetime.month, datetime.year);
+
+    clock_update_datetime();
 }
 
 static uint8_t clock_int_to_bcd(uint8_t integer) {
