@@ -1,4 +1,4 @@
-![Logo of the project](untref_logo.jpg)
+![Logo of the project](imagenes/untref_logo.jpg)
 # STM32-DEV-ENV
 
 Este repositorio contiene una plantilla de proyecto para programa el entorno de desarrollo provisto por la catedra de Electronica de la UnTref. 
@@ -8,13 +8,14 @@ Este proyecto esta pensado para el desarrollo de aplicaciones bajo el IDE STM32C
 | MCU reference                     | STM32F103C6Tx          |
 | --------------------------------- | ---------------------- |
 | Firmware Package name and version | STM32Cube FW_F1 V1.8.6 |
-![[pin_cfg.png]]
+
+![[imagenes/pin_cfg.png]]
 Referencia de pines detallada en la inicialización de pines en main.c
 ## Importar proyecto
 
 Para importar el proyecto solo es necesario indicar el directorio del proyecto dentro de la opción de importar proyecto existente de STM32CubeIDE.
 
-![[import.png]]
+![[imagenes/import.png]]
 ## Desarrollo
 
 
