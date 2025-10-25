@@ -49,6 +49,7 @@ RTC_HandleTypeDef hrtc;
 
 /* USER CODE BEGIN PV */
 char string_buffer[30];
+Clock_Status_t status_buffer;
 
 /* USER CODE END PV */
 
@@ -110,15 +111,61 @@ int main(void)
 	  HAL_Delay(1); //STABILITY
 
 	  //CLOCK FUNC TEST
+//	  lcd_put_cur(0, 0);
+//	  sprintf(string_buffer, " Fecha :%02d/%02d/%02d", datetime.date, datetime.month, datetime.year);
+//	  lcd_send_string(string_buffer);
+//
+//	  lcd_put_cur(1, 0);
+//	  sprintf(string_buffer, " Hora :%02u/%02u/%02u", datetime.hours, datetime.minutes, datetime.seconds);
+//	  lcd_send_string(string_buffer);
+//
+//	  clock_update_datetime();
+
+	  //CLOCK ERROR TEST
+
+	  status_buffer = clock_set_date(20, 2, 25);
 	  lcd_put_cur(0, 0);
-	  sprintf(string_buffer, " Fecha :%02d/%02d/%02d", datetime.date, datetime.month, datetime.year);
-	  lcd_send_string(string_buffer);
+	  if (status_buffer != CLOCK_OK){
+		  sprintf(string_buffer, "Fecha Invalida cod:%2d", status_buffer);
+		  lcd_send_string(string_buffer);
+	  } else {
+		  lcd_send_string("Fecha Valida");
+	  }
 
-	  lcd_put_cur(1, 0);
-	  sprintf(string_buffer, " Hora :%02u/%02u/%02u", datetime.hours, datetime.minutes, datetime.seconds);
-	  lcd_send_string(string_buffer);
+	  HAL_Delay(5);
 
-	  clock_update_datetime();
+	  status_buffer = clock_set_date(32, 2, 25);
+	  lcd_put_cur(0, 0);
+	  if (status_buffer != CLOCK_OK){
+		  sprintf(string_buffer, "Fecha Invalida cod:%2d", status_buffer);
+		  lcd_send_string(string_buffer);
+	  } else {
+		  lcd_send_string("Fecha Valida");
+	  }
+
+	  HAL_Delay(5);
+
+	  status_buffer = clock_set_time(20, 2, 25);
+	  lcd_put_cur(0, 0);
+	  if (status_buffer != CLOCK_OK){
+		  sprintf(string_buffer, "Tiempo invalido cod:%2d", status_buffer);
+		  lcd_send_string(string_buffer);
+	  } else {
+		  lcd_send_string("Tiempo Valido");
+	  }
+
+	  HAL_Delay(5);
+
+	  status_buffer = clock_set_time(24, 2, 25);
+	  lcd_put_cur(0, 0);
+	  if (status_buffer != CLOCK_OK){
+		  sprintf(string_buffer, "Tiempo invalido cod:%2d", status_buffer);
+		  lcd_send_string(string_buffer);
+	  } else {
+		  lcd_send_string("Tiempo Valido");
+	  }
+
+
 	  //KEYPAD FUNC TEST
 
 //	  uint8_t key = keypad_read();
