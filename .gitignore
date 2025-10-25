@@ -43,7 +43,6 @@
 *.pdb
 *.cyclo
 *.pdsbak
-*.pdsprj
 *.workspace
 
 #Build folder
